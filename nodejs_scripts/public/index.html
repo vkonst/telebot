@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>TeleBot</title>
+</head>
+<body>
+  <div id="video_pane" style="margin: auto; border: 1px solid black; display: table;">
+    <img id="browser_video" class="video-image" alt="video" src="/api/videofeed">
+  </div>
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script>
+    (function(){
+      var socket = io.connect(window.location.hostname + ':' + 3000);
+
+      socket.on('connect', function(data) {
+        socket.emit('join', 'Client is connected!');
+
+        function sendCmd(cmd) {
+           socket.emit('cmd', cmd);
+           console.log('cmd sent: ', cmd);
+        }
+
+        document.addEventListener("keydown", onKeyDown, false);
+
+        function onKeyDown(e) {
+          var keyCode = e.keyCode;
+          console.log('key: ', keyCode);
+          switch(keyCode) {
+             case 37:
+               return sendCmd('left');
+             case 38:
+               return sendCmd('forward');
+             case 39:
+               return sendCmd('right');
+             case 40:
+               return sendCmd('reverse');
+             case 32:
+               return sendCmd('stop');
+           }
+        }
+
+      });
+
+    })();
+  </script>
+</body>
+</html>

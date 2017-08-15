@@ -1,0 +1,27 @@
+{
+  "name": "telebot",
+  "version": "0.0.1",
+  "description": "Proof-of-concept scripts for an Arduino-controlled bot car powered by Android + termux + nodejs + johny5",
+  "main": "telebot.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.1",
+    "etherserial": "^0.0.2",
+    "helmet": "^3.5.0",
+    "johnny-five": "^0.10.8",
+    "node-gyp": "^3.6.0",
+    "node-pre-gyp": "^0.6.34"
+  },
+  "devDependencies": {
+    "express": "^4.15.2",
+    "http-proxy-middleware": "^0.17.4",
+    "socket.io": "^1.7.3",
+    "johnny-five": "^0.10.8",
+    "etherserial": "^0.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vadim.konstantinov@gmail.com",
+  "license": "ISC"
+}
